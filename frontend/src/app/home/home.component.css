@@ -1,0 +1,8 @@
+.container {
+  margin: 0 2.5rem;
+  height: 900px;
+  background-image: url('../../assets/jung-ho-park-Zf_JjxycVOs-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+}
