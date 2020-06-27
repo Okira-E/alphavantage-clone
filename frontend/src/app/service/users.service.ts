@@ -16,7 +16,7 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
-  registerUser(email): void {
+  public registerUser(email): void {
     this.http.post<{token: string}>(this.url + "/api/users/register", {
       email: email
     }).subscribe(res => {
@@ -28,11 +28,11 @@ export class UsersService {
     });
   }
 
-  getToken() {
+  public getToken() {
     return this.currentApiKey;
   }
 
-  getErrorMessage() {
+  public getErrorMessage() {
     return this.currentErrorMessage;
   }
 }
