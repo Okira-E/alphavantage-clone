@@ -13,7 +13,12 @@ app.use(userRouter);
 
 
 app.get("/*", (req, _res, next) => {
-    console.log(`GET --> http://localhost:3000${req.path}`);
+    console.log(req.query);
+    if (req.query = {}) {
+        console.log(`GET --> http://localhost:3000${req.path}`);
+    } else {
+        console.log(`GET --> http://localhost:3000${req.path}, query=${Object.keys(req.query)}`);
+    }
     next();
 });
 
