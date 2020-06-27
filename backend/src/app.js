@@ -12,6 +12,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(userRouter);
 
 
+app.get("/*", (req, _res, next) => {
+    console.log(`GET --> http://localhost:3000${req.path}`);
+    next();
+});
+
+app.post("/*", (req, _res, next) => {
+    console.log(`POST --> http://localhost:3000${req.path}, body=[${Object.keys(req.body)}]`);
+    next();
+});
+
+
 const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`App is not listening on port ${PORT}`);
