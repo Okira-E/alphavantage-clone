@@ -5,3 +5,4 @@ this is guide to how you can clone and install the dependancies to get it runnin
 ## Prerequisites
 ```npm``` Package Manager
 
+after cloning the project go to the root directory for both frontend and backend and run ```npm install```
