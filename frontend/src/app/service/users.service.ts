@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpErrorResponse} from "@angular/common/http";
-import {BehaviorSubject, Observable} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
