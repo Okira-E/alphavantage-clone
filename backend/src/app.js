@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('./routes/users');
 require('./db/mongoose');
+require('./db/mysql');
 
 const app = express();
 
