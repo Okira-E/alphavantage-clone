@@ -1,2 +1,3 @@
 /backend/src/db/mongoose.js
-/backend/src/db/postgres.js
+/backend/src/db/mysql.js
+/backend/node_modules
