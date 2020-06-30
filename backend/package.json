@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "dev": "env-cmd -f ./config/.env nodemon src/app.js"
+    "dev": "env-cmd -f ./config/.env nodemon src/app.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +16,7 @@
     "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
+    "jest": "^26.1.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.20",
     "mysql": "^2.18.1",
