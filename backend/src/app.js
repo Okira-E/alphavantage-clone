@@ -24,7 +24,7 @@ app.post("/*", (req, _res, next) => {
 });
 
 
-const PORT = 3000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => {
     console.log(`App is not listening on port ${PORT}`);
 });
