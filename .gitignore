@@ -2,4 +2,5 @@
 /backend/src/db/mysql.js
 /backend/node_modules
 /backend/config
+/backend/.docker
 /.idea
