@@ -9,4 +9,4 @@ after cloning the project go to the root directory for both frontend and backend
 
 the command for compiling Angular code in the root frontend directory is ```ng serve```
 
-the command for compiling Node.js code in the root backend directory is ```npm run start```
+the command for compiling Node.js code in the root backend directory is ```npm run dev```
