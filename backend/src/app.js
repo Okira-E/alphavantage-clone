@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const userRouter = require('./routes/users');
 require('./db/mongoose');
-require('./db/mysql');
 
 const app = express();
 
@@ -26,5 +25,5 @@ app.post("/*", (req, _res, next) => {
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-    console.log(`App is not listening on port ${PORT}`);
+    console.log(`App is now listening on port ${PORT}`);
 });
