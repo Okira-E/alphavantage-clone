@@ -11,9 +11,18 @@ services:
             - "3000:3000"
         depends_on:
             - mongo
+            - postgres
         links:
             - mongo
     mongo:
         image: mongo
         ports:
             - "27017:27017"
+    postgres:
+        image: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            POSTGRES_PASSWORD: somethingsecret
+            POSTGRES_USER: postgres
+            POSTGRES_DB: apis
