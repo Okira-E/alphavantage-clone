@@ -1,5 +1,4 @@
-/backend/src/db/mongoose.js
-/backend/src/db/mysql.js
+/backend/src/db
 /backend/node_modules
 /backend/config
 /backend/.docker
