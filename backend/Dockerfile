@@ -1,5 +1,5 @@
 FROM node:12-alpine
-MAINTAINER okira omarrafat60@gmail.com
+LABEL author=okira email=omarrafat60@gmail.com
 
 COPY package*.json ./
 
