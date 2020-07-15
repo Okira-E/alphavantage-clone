@@ -1,10 +1,35 @@
 "use strict";
 const express = require('express');
+const { Client } = require('pg');
 const User = require('../models/users');
 
+
 const router = new express.Router();
+const client = new Client({
+    host: 'postgres',
+    port: 5432,
+    user: 'postgres',
+    password: "somethingsecret"
+});
 
 
+router.get("/", async (req, res, next) => {
+    try {
+        await client.connect();
+        await client.query(`SELECT * FROM t`,
+        (err, query) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(query);
+            }
+        });
+    } catch (e) {
+        console.log(e);
+    }
+
+    next();
+})
 
 router.post("/api/users/register", async (req, res) => {
     const email = req.body.email;
