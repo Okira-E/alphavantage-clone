@@ -1,5 +1,5 @@
 /backend/src/db
 /backend/node_modules
 /backend/config
-/backend/.docker
-/.idea/*
+/backend/.dockerignore
+/.idea
