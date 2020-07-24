@@ -4,7 +4,6 @@ const { Client } = require('pg');
 const User = require('../models/users');
 
 
-const router = new express.Router();
 const client = new Client({
     host: 'postgres',
     port: 5432,
@@ -12,6 +11,7 @@ const client = new Client({
     password: "somethingsecret"
 });
 
+const router = new express.Router();
 
 router.get("/", async (req, res, next) => {
     try {
