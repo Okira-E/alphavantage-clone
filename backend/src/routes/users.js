@@ -1,14 +1,8 @@
 "use strict";
 const express = require("express");
-const { Client } = require("pg");
 const User = require("../models/users");
+const client = require("../db/postgres");
 
-const client = new Client({
-    host: "postgres",
-    port: 5432,
-    user: "postgres",
-    password: "somethingsecret",
-});
 
 const router = new express.Router();
 
