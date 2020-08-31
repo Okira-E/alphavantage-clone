@@ -3,10 +3,9 @@ const express = require("express");
 const User = require("../models/users");
 const client = require("../db/postgres");
 
-
 const router = new express.Router();
 
-router.get("/", async (req, res, next) => {
+router.get("/", async(req, res, next) => {
     try {
         await client.connect();
         await client.query(`SELECT * FROM t`, (err, query) => {
@@ -23,7 +22,7 @@ router.get("/", async (req, res, next) => {
     next();
 });
 
-router.post("/api/users/register", async (req, res) => {
+router.post("/api/users/register", async(req, res) => {
     const email = req.body.email;
     try {
         const user = await new User({ email }).save();
@@ -35,7 +34,7 @@ router.post("/api/users/register", async (req, res) => {
     }
 });
 
-router.post("/api/users/getToken", async (req, res) => {
+router.post("/api/users/getToken", async(req, res) => {
     const email = req.body.email;
     let token = "";
     try {
