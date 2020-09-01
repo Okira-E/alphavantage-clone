@@ -7,7 +7,6 @@ const router = new express.Router();
 
 router.get("/", async(req, res, next) => {
     try {
-        await client.connect();
         await client.query(`SELECT * FROM t`, (err, query) => {
             if (err) {
                 console.log(err);
