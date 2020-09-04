@@ -1,7 +1,6 @@
 "use strict";
 const express = require("express");
 const cors = require("cors");
-const chalk = require("chalk");
 const userRouter = require("./routes/users");
 require("./db/mongo");
 
