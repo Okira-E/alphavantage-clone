@@ -1,6 +1,7 @@
 "use strict";
 const express = require("express");
 const cors = require("cors");
+const chalk = require("chalk");
 const userRouter = require("./routes/users");
 require("./db/mongo");
 
@@ -13,6 +14,6 @@ app.use(userRouter);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => {
-    console.log(`App is now listening on port ${PORT}`);
+    console.log(chalk.cyan(`App is now listening on port ${PORT}`));
 });
 // Added this line of code to test something
