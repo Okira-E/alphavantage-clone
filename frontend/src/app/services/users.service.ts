@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root',
 })
 export class UsersService {
-  private url: string = 'http://localhost:3000';
+  private url: string = 'http://localhost:3200';
   private apiKey: string = '';
   private apiKeyListener = new BehaviorSubject<string>(this.apiKey); // Listens to whenever the value for apiKey actually changes
   private currentApiKey = this.apiKeyListener.asObservable();
@@ -19,7 +19,7 @@ export class UsersService {
   public registerUser(email): void {
     this.http
       .post<{ token: string }>(this.url + '/api/users/register', {
-        email: email,
+        email,
       })
       .subscribe(
         (res) => {
