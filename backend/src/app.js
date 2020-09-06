@@ -10,8 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(userRouter);
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 3200;
 app.listen(PORT, () => {
     console.log(`App is now listening on port ${PORT}`);
 });
-// Added this line of code to test something
