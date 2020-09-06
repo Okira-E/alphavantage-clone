@@ -10,7 +10,7 @@ this is a guide to how you can clone and install the dependencies to get it runn
 
 `Node.js`\
 `npm` Package Manager\
-`Docker` Package Manager
+`Docker`
 
 ## Steps
 
