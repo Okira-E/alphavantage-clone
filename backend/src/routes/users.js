@@ -2,50 +2,39 @@ const express = require("express");
 const User = require("../models/users");
 const client = require("../db/postgres");
 const validateSQL = require("../middlewares/validateSQL");
+const auth = require("../middlewares/auth");
 
 const router = new express.Router();
 
-// TESTING //////////////////////////////////////////////////////////////
+// SQL
 
-router.post("/api/db/create", validateSQL, async(req, res) => {
-    const tableName = req.body.name;
-    const sql = `CREATE TABLE data(id varchar(50) UNIQUE, name varchar(50), lastname varchar(50));`;
+router.get("/api/sampleData/fakeComments", auth, (req, res) => {
+    const sql = "SELECT * FROM comments";
 
-    try {
-        const result = await client.query(sql);
-        res.status(201).send(result);
-    } catch (e) {
-        res.status(400).send(e);
-    }
+    client
+        .query(sql)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
 });
 
-router.post("/api/db/drop", validateSQL, async(req, res) => {
-    const tableName = req.body.name;
-    const sql = `DROP TABLE ${tableName}`;
+router.get("/api/sampleData/fakeTodos", auth, (req, res) => {
+    const sql = "SELECT * FROM todos";
 
-    try {
-        const result = await client.query(sql);
-        res.status(200).send(result);
-    } catch (e) {
-        res.status(404).send();
-    }
+    client
+        .query(sql)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
 });
 
-router.post("/api/db/query", validateSQL, async(req, res, next) => {
-    const tableName = req.body.name;
-    const sql = `SELECT * FROM ${tableName};`;
-
-    try {
-        const result = await client.query(sql);
-        res.status(200).send(result);
-    } catch (e) {
-        res.status(500).send(e);
-    }
-
-    next();
-});
-
-// TESTING //////////////////////////////////////////////////////////////
+// SQL
 
 router.post("/api/users/register", async(req, res) => {
     const email = req.body.email;
@@ -54,7 +43,6 @@ router.post("/api/users/register", async(req, res) => {
         const token = await user.generateToken();
         res.status(201).send({ token });
     } catch (e) {
-        console.log(e);
         res.status(400).send();
     }
 });
