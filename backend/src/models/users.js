@@ -18,6 +18,15 @@ const userSchema = new mongoose.Schema({
     token: {
         type: String,
     },
+    activated: {
+        type: Boolean,
+        required: false,
+        default: false,
+    },
+    calls: {
+        type: Number,
+        required: false,
+    },
 }, {
     timestamps: true,
 });
@@ -29,6 +38,22 @@ userSchema.methods.generateToken = async function() {
     await this.save();
 
     return this.token;
+};
+
+userSchema.methods.called = async function(continuous) {
+    const limit = 50; // 50 calls per 10 seconds
+
+    if (!continuous) {
+        this.calls = 1;
+        return true;
+    } else {
+        if (this.calls < limit) {
+            this.calls += 1;
+            return true;
+        } else {
+            return false;
+        }
+    }
 };
 
 module.exports = mongoose.model("User", userSchema);
