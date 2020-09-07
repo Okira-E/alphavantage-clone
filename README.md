@@ -1,6 +1,6 @@
 # Alphavantage Clone
 
-Full Web Application for fetching sample data with API keys as the authentication and authorization method
+A clone of https://alphavantage.co project that relies heavily on the Node.js backend that allows developers to fetch dummy data stored in a Postgres database using unique non-expiring Api Keys stored in the MongoDB Users database all running using Docker
 
 ## Getting Started
 
