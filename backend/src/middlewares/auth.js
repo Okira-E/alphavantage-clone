@@ -15,10 +15,11 @@ const auth = async(req, res, next) => {
             isAllowed = await user.called(true);
         } else {
             // More than 10 seconds have passed so we reset the calls count
-            isAllowed = await user.called(false); // Allowed here is always TRUE
+            isAllowed = await user.called(false); // isAllowed here is always TRUE
         }
 
         if (isAllowed) {
+            // Updates a dummy row just to have the db save this point in time for later
             await User.updateOne({ _id: user._id }, { $set: { activated: true } });
             await user.save();
         } else {
